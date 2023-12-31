@@ -1,0 +1,51 @@
+.job-card{
+    border: 1px solid teal;
+    padding: 10px;
+    cursor: pointer;
+    width: 450px;
+    /* padding: 10px; */
+}
+
+.card-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 50px;
+}
+
+.card-img img{
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.job-card:hover{
+    transform: scale(1.01);
+}
+
+.apply-btn button{
+    border: 1px solid #2A5992;
+    background: none;
+    padding: 8px 20px;
+    font-size: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #2A5992;
+    
+}
+
+.apply-btn button:hover{
+    background-color: #2A5992;
+    color: #fff;
+}
+
+.job-card p{
+    text-align: center;
+}
+
+.company-title{
+    text-align:  center;
+    padding: 10px;
+}

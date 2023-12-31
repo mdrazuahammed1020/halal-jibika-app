@@ -1,0 +1,36 @@
+nav{
+    font-family: 'Nunito Sans', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* height: 90px; */
+    margin-bottom: 30px;
+    /* position: fixed; */
+    padding: 30px 10px;
+    top: 0;
+    left: 0;
+}
+
+nav a {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 8px 20px;
+    text-decoration: none;
+    color: black;
+}
+
+nav h3{
+    margin-left: 10px;
+    font-size: 20px;
+    color: #2A5992;
+}
+
+nav ul{
+    /* margin-right: 10px; */
+}
+
+.active{
+    background-color: #2A5992;
+    color: #fff;
+}
+

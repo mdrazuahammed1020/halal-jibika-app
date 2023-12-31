@@ -1,0 +1,95 @@
+.home-section{
+   
+    height: 500px;
+    
+    background-image: url(../../assets/pexels-anamul.jpg);
+    /* object-fit: contain; */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* border: 1px solid red; */
+}
+
+
+.home-content{
+    /* width: 40%; */
+    /* margin-top: 90px; */
+    padding-top: 40px;
+    /* margin-top: 0px; */
+    padding-left: 40px;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(247, 241, 241, 0.671), rgba(255, 0, 0, 0.548));
+}
+
+.home-content h1{
+    font-size: 3.5rem;
+    /* margin-top: -1.5rem; */
+    color: #2A5992;
+    box-sizing: border-box;
+
+}
+
+
+.home-btn{
+    border: 1px solid #2A5992;
+    background: none;
+    padding: 12px 30px;
+    font-size: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.5s linear;
+}
+
+.home-btn:hover{
+    background-color: #2A5992;
+    color: #fff;
+}
+
+.home-section-jobs{
+    margin: 50px 0;
+    /* border: 1px solid red; */
+    font-family: 'Lora', serif;
+    padding: 10px;
+    
+}
+
+.home-section-jobs > h3{
+    font-size: 30px;
+    text-align: center;
+    color: #2A5992;
+    margin: 30px 0;
+}
+
+.home-section-inner{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: center;
+    gap: 10px;
+}
+
+.see-jobs-btn{
+    text-align: center;
+    margin: 30px;
+}
+
+.see-jobs-btn button{
+    border: 1px solid transparent;
+    background: none;
+    padding: 12px 30px;
+    font-size: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #2A5992;
+    color: #fff;
+}
+
+.see-jobs-btn button:hover{
+    background-color: transparent;
+    color: #000;
+    border: 1px solid #2A5992;
+}

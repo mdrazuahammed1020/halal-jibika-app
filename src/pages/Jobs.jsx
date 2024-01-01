@@ -1,6 +1,7 @@
-import React from 'react'
-import useFetch from '../customHook/useFetch';
+import React, { useContext } from 'react'
+// import useFetch from '../customHook/useFetch';
 import JobCard from '../components/JobCard/JobCard';
+import UserContext from '../UserContext';
 
 const styles = {
   maindiv: {
@@ -13,20 +14,12 @@ const styles = {
 }
 
 export default function Jobs() {
-  const { data, loading, error } = useFetch();
-
-  if (loading) {
-      return <div>Loading...</div>;
-  }
-
-  if (error) {
-      return <div>Error: {error.message}</div>;
-  }
+  const {data, deleteElement} = useContext(UserContext)
   return (
     <div style={styles.maindiv}>
       {
         data && data.map(job => (
-          <JobCard  key={job.id} job = {job} />
+          <JobCard  key={job.id} job = {job} deleteElement = {deleteElement} />
         ))
       }
     </div>

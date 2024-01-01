@@ -1,26 +1,14 @@
-import React from "react";
+// import React, { useState } from "react";
 import "./Home.css";
-import useFetch from "../../customHook/useFetch";
-import JobCard from "../../components/JobCard/JobCard";
+// import JobCard from "../../components/JobCard/JobCard";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import UserContext from "../../UserContext";
+import JobCard from "../../components/JobCard/JobCard";
 
 export default function Home() {
-
-  const navigate = useNavigate();
-
-  const { data, loading, error } = useFetch();
-
-  if (loading) {
-      return <div>Loading...</div>;
-  }
-
-  if (error) {
-      return <div>Error: {error.message}</div>;
-  }
-  const filterRecentJobs = data.filter(job => job.jobpost < 6).slice(0, 5).sort((a, b) => a.jobpost - b.jobpost)
-
-  console.log(filterRecentJobs)
-
+  const {data, deleteElement} = useContext(UserContext);
+  const navigate = useNavigate()
   return (
     <div className="home-section-outer">
 
@@ -41,12 +29,9 @@ export default function Home() {
     <div className="home-section-jobs">
       <h3>Recents Jobs</h3>
       <div className="home-section-inner">
-      {
-        filterRecentJobs && filterRecentJobs.map(job => (
-          <JobCard  key={job.id} job = {job} />
-        ))
-      }
-
+        {
+          data && data.filter(job => job.jobpost < 5).sort((a, b)=> a.jobpost - b.jobpost).slice(0, 5).map(job => <JobCard key={job.id} job = {job} deleteElement={deleteElement} /> )
+        }
       </div>
       <div className="see-jobs-btn">
         <button onClick={()=> navigate('/jobs')} >Explore All Jobs</button>
@@ -57,3 +42,6 @@ export default function Home() {
 
   );
 }
+
+
+ 

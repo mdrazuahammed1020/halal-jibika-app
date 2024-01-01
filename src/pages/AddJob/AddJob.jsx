@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 // import { v4 as uuidv4 } from 'uuid';
+import './AddJob.css'
 
 export default function AddJob() {
   const [jobData, setJobData] = useState({
@@ -9,19 +10,40 @@ export default function AddJob() {
     companyName: '',
     position: '',
     description: '',
-    jobpost: '7',
+    jobpost: Math.floor(Math.random() * 10 + 1),
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setJobData({ ...jobData, [name]: value });
   };
+  console.log(jobData)
 
-  // function handleSubmit(e){
-  //   e.preventDefault();
-  // }
+
+  
+
+  function handleSubmit(e){
+    e.preventDefault();
+    fetch('http://localhost:9000/jobs', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(jobData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Success:', data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }
+
+
   return (
-    <form>
+
+    <form className='job-form' onSubmit={handleSubmit} >
       <input type="text" name='id' placeholder='Id' value={jobData.id} onChange={handleChange} />
       <input
         type="text"
@@ -29,13 +51,16 @@ export default function AddJob() {
         placeholder="Title"
         value={jobData.title}
         onChange={handleChange}
+        required
       />
+
       <input
         type="text"
         name="logo"
         placeholder="Logo URL"
         value={jobData.logo}
         onChange={handleChange}
+        required
       />
       <input
         type="text"
@@ -43,6 +68,7 @@ export default function AddJob() {
         placeholder="Company Name"
         value={jobData.companyName}
         onChange={handleChange}
+        required
       />
       <input
         type="text"
@@ -50,14 +76,16 @@ export default function AddJob() {
         placeholder="Position"
         value={jobData.position}
         onChange={handleChange}
+        required
       />
       <textarea
         name="description"
         placeholder="Description"
         value={jobData.description}
         onChange={handleChange}
+        required
       ></textarea>
-      <button type="submit">Submit</button>
+      <button type="submit">Add Job</button>
     </form>
   )
 }

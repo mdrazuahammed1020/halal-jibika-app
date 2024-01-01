@@ -7,7 +7,7 @@ import Jobs from "../pages/Jobs";
 import Contact from "../pages/Contact";
 import Favorite from "../pages/Favorite";
 import AppliedJob from "../pages/AppliedJob";
-import AddJob from "../pages/AddJob";
+import AddJob from "../pages/AddJob/AddJob";
 import SignUp from "../pages/SignUp";
 
 const routes = createBrowserRouter([

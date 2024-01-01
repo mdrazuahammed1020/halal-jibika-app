@@ -1,7 +1,7 @@
 import React from "react";
 import "./JobCard.css";
 
-export default function JobCard({ job }) {
+export default function JobCard({ job, deleteElement }) {
   return (
     <div className="job-card">
 
@@ -19,10 +19,16 @@ export default function JobCard({ job }) {
         <p>{job.title}</p>
         <p>Position: {job.position}</p>
       </div>
-
       <p>
           <i>Job posted {job.jobpost} days age</i>
         </p>
+
+        <div className="delete-edit-section">
+        <button onClick={()=> deleteElement(job.id) } >Delete</button>
+        <button  >Edit</button>
+      </div>
+
+      
     </div>
   );
 }

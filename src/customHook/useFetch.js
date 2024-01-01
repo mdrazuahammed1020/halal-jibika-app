@@ -8,7 +8,7 @@ const useFetch = (url) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch("http://localhost:9000/jobs");
+                const response = await fetch(url);
                 if (!response.ok) {
                     throw new Error("Network response was not ok.");
                 }

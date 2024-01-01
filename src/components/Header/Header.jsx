@@ -1,6 +1,9 @@
 import { NavLink } from 'react-router-dom'
 import './Header.css';
+import { useContext } from 'react';
+import UserContext from '../../UserContext';
 export default function Header() {
+  
   return (
     <div>
         <nav className='header' >
@@ -16,6 +19,7 @@ export default function Header() {
                 <NavLink to={'/addjob'} >Add Job</NavLink>
             </ul>
         </nav>
+
     </div>
   )
 }

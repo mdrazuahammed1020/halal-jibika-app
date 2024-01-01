@@ -25,20 +25,21 @@
 }
 
 .apply-btn button{
-    border: 1px solid #2A5992;
-    background: none;
+    background: #2A5992;
+    border: 1px solid transparent;
     padding: 8px 20px;
     font-size: 20px;
     margin-top: 10px;
     cursor: pointer;
     font-weight: bold;
-    color: #2A5992;
+    color: #fff;
     
 }
 
 .apply-btn button:hover{
-    background-color: #2A5992;
-    color: #fff;
+    border: 1px solid #2A5992;
+    background: transparent;
+    color: #2A5992;
 }
 
 .job-card p{
@@ -48,4 +49,16 @@
 .company-title{
     text-align:  center;
     padding: 10px;
+}
+
+.delete-edit-section button{
+    background-color: transparent;
+    padding: 8px 10px;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #000;
+    outline: none;
+    border: 1px solid #2A5992;
 }

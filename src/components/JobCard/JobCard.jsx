@@ -1,7 +1,8 @@
 import React from "react";
+import {FaHeart} from 'react-icons/fa'
 import "./JobCard.css";
 
-export default function JobCard({ job, deleteElement }) {
+export default function JobCard({ job, deleteElement, appliedJobs }) {
   return (
     <div className="job-card">
 
@@ -11,7 +12,7 @@ export default function JobCard({ job, deleteElement }) {
         </div>
        
         <div className="apply-btn">
-          <button>Apply Now</button>
+          <button style={{backgroundColor: job.applied ? "#E5E1DA" : "#2A5992" }} onClick={()=> appliedJobs(job.id)} disabled={job.applied} >{job.applied ? "Applied" : "Apply Now"}</button>
         </div>
       </div>
       <h2 className="company-title">{job.companyName}</h2>
@@ -20,15 +21,23 @@ export default function JobCard({ job, deleteElement }) {
         <p>Position: {job.position}</p>
       </div>
       <p>
-          <i>Job posted {job.jobpost} days age</i>
+          <i>Job posted {job.jobpost} days ago</i>
         </p>
 
         <div className="delete-edit-section">
-        <button onClick={()=> deleteElement(job.id) } >Delete</button>
+       <div>
+       <button onClick={()=> deleteElement(job.id) } >Delete</button>
         <button  >Edit</button>
+       </div>
+       <div className="favorite-btn">
+        
+          <span> <FaHeart /> </span>
+        </div>
       </div>
 
       
     </div>
   );
 }
+
+

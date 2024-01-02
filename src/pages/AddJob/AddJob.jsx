@@ -11,6 +11,8 @@ export default function AddJob() {
     position: '',
     description: '',
     jobpost: Math.floor(Math.random() * 10 + 1),
+    isApplied: false,
+    isFav: false
   });
 
   const handleChange = (e) => {
@@ -19,8 +21,6 @@ export default function AddJob() {
   };
   console.log(jobData)
 
-
-  
 
   function handleSubmit(e){
     e.preventDefault();
@@ -34,10 +34,22 @@ export default function AddJob() {
       .then((response) => response.json())
       .then((data) => {
         console.log('Success:', data);
+        
+        setJobData({
+          id: '',
+          title: '',
+          logo: '',
+          companyName: '',
+          position: '',
+          description: '',
+          jobpost: Math.floor(Math.random() * 10 + 1),
+        });
       })
       .catch((error) => {
         console.error('Error:', error);
       });
+
+
   }
 
 

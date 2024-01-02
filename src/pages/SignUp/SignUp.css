@@ -1,0 +1,59 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap'); */
+
+.signup-wrapper{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* border: 1px solid red; */
+}
+.form-wrapper-inner{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* min-height: 100vh; */
+    font-family: 'Poppins', sans-serif;
+}
+.form-text-wrapper {
+    border: 1px solid teal;
+    width: 500px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: -20px;
+}
+
+.form-wrapper-inner form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* border: 1px solid teal; */
+    padding: 30px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.form-wrapper-inner form input{
+    display: block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid black;
+    font-size: 16px;
+
+}
+
+.form-wrapper-inner form input[type = 'button']{
+    width: 50%;
+    margin: 10px auto;
+    background-color: teal;
+    color: #fff;
+    cursor: pointer;
+}
+
+.account-redirect-btn span{
+    color: rgb(21, 67, 136);
+    cursor: pointer;
+}

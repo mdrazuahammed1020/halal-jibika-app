@@ -34,3 +34,14 @@ nav ul{
     color: #fff;
 }
 
+ul a span  {
+    color: #000;
+    font-weight: bold;
+    /* position: relative; */
+} 
+
+
+/* ul a:nth-child(7)::before{
+
+ }   */
+

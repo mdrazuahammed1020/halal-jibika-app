@@ -2,13 +2,14 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Home from "../pages/Home/Home";
-import About from "../pages/About";
+import About from "../pages/About/About";
 import Jobs from "../pages/Jobs";
-import Contact from "../pages/Contact";
+import Contact from "../pages/Contact/Contact";
 import Favorite from "../pages/Favorite";
 import AppliedJob from "../pages/AppliedJob";
 import AddJob from "../pages/AddJob/AddJob";
-import SignUp from "../pages/SignUp";
+import SignUp from "../pages/SignUp/SignUp";
+import Login from "../pages/Login/Login";
 
 const routes = createBrowserRouter([
     {
@@ -31,10 +32,7 @@ const routes = createBrowserRouter([
                 path: '/contact',
                 element: <Contact />
             },
-            {
-                path: '/signup',
-                element: <SignUp />
-            },
+            
             {
                 path: '/favorite',
                 element: <Favorite />
@@ -48,7 +46,16 @@ const routes = createBrowserRouter([
                 element: <AddJob />
             }
            
-        ]
+        ],
+        
+    },
+    {
+        path: '/signup',
+        element: <SignUp />
+    },
+    {
+        path: 'login',
+        element: <Login />
     }
 ])
 

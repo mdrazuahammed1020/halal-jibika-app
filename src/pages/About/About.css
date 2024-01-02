@@ -1,0 +1,31 @@
+.about-content {
+    padding: 20px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid red; */
+    font-family: 'Nunito Sans', sans-serif;
+    /* justify-content: space-between; */
+  }
+  
+  .about-section {
+   
+    background-color: #fff;
+    border-radius: 8px;
+    width: 55%;
+  }
+
+  .about-section h1{
+    margin-bottom: 30px;
+    color: rgb(39, 103, 185);
+  }
+
+  .about-section-img{
+        width: 45%;
+        /* border: 1px solid red; */
+  }
+
+  .about-section-img img{
+    width: 100%;
+  }
+  

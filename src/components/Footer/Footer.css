@@ -24,7 +24,13 @@
 
 .footer-section-inner ul li a{
     text-decoration: none;
-    color: #dfdddd;
+    color: #8888887e;
+    transition: 0.5s linear;
+}
+
+.footer-section-inner ul li a:hover{
+    text-decoration: none;
+    color: #c4c1c1d8;
 }
 
 .footer-icons {

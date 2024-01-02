@@ -7,9 +7,10 @@ import useFetch from './customHook/useFetch';
 
 function App() {
   const {data,loading, error } = useFetch("http://localhost:9000/jobs")
-  // const [jobs, setJobs] = useState(data || []);
  
   const [jobs, setJobs] = useState([]);
+  const [totalAppliedJob, setTotalAppliedJob] = useState([]);
+
 
   useEffect(() => {
     if (data) {
@@ -35,10 +36,35 @@ function App() {
     }
   }
 
+  // let totalAppliedJob =  [];
+
+  function appliedJobs(id) {
+
+    const updatedJobs = jobs.map((job) =>
+    job.id === id ? { ...job, applied: true } : job
+    );
+    setJobs(updatedJobs);
+
+    let appliedJob = jobs.find(job => job.id === id)
+    setTotalAppliedJob(prevJob => [...prevJob, appliedJob])
+  }
+
+  function removeAppliedJob(id){
+    let removerJobItems =  totalAppliedJob.filter(job => job.id !== id );
+    setTotalAppliedJob(removerJobItems) 
+    console.log('hi')
+  }
+
+
+  // console.log(totalAppliedJob)
   const value = {
     data: jobs,
-    deleteElement
+    deleteElement,
+    appliedJobs,
+    totalAppliedJob,
+    removeAppliedJob
   }
+
   return (
     <UserContext.Provider value={value}>
       <MainLayOut />

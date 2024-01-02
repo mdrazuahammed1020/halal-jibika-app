@@ -1,5 +1,8 @@
 .job-card{
-    border: 1px solid teal;
+    background: rgba(255, 255, 255, 0.2); /* Adjust the alpha (4th value) for transparency */
+    backdrop-filter: blur(10px); /* Adjust the blur effect */
+    border-radius: 10px; /* Adjust the border radius */
+    border: 1px solid rgba(255, 255, 255, 0.473);
     padding: 10px;
     cursor: pointer;
     width: 450px;
@@ -39,7 +42,7 @@
 .apply-btn button:hover{
     border: 1px solid #2A5992;
     background: transparent;
-    color: #2A5992;
+    color: rgba(0, 128, 128, 0.705);
 }
 
 .job-card p{
@@ -51,6 +54,12 @@
     padding: 10px;
 }
 
+.delete-edit-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .delete-edit-section button{
     background-color: transparent;
     padding: 8px 10px;
@@ -60,5 +69,6 @@
     font-weight: bold;
     color: #000;
     outline: none;
-    border: 1px solid #2A5992;
+    border: 1px solid #176B87;
+    ;
 }

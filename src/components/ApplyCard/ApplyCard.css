@@ -1,0 +1,40 @@
+
+.apply-job-card-inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid black; */
+    margin: 10px 0;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;;
+}
+
+.img-card-apply img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.apply-job-card-inner h2{
+    font-size: 24px;
+}
+
+.apply-job-card-inner p{
+    font-size: 18px;
+}
+
+.apply-job-remove-btn button{
+    background-color: transparent;
+    padding: 8px 10px;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #000;
+    outline: none;
+    border: 1px solid #176B87;
+}
+
+.apply-job-remove-btn button:hover{
+    background-color: #176B87;
+}

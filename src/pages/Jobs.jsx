@@ -8,18 +8,21 @@ const styles = {
     display: "grid",
     'grid-template-columns': 'repeat(3, auto)',
     'justify-content': 'center',
-    padding: '10px',
-    gap: '5px'
+    padding: '70px 10px',
+    gap: '10px',
+    'background-image': "linear-gradient(to right, rgb(96, 165, 250), rgb(52, 211, 153))",
+   
+    
   }
 }
 
 export default function Jobs() {
-  const {data, deleteElement} = useContext(UserContext)
+  const {data, deleteElement, appliedJobs} = useContext(UserContext)
   return (
     <div style={styles.maindiv}>
       {
         data && data.map(job => (
-          <JobCard  key={job.id} job = {job} deleteElement = {deleteElement} />
+          <JobCard  key={job.id} job = {job} deleteElement = {deleteElement} appliedJobs = {appliedJobs} />
         ))
       }
     </div>

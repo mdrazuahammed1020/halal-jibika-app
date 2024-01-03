@@ -36,13 +36,13 @@ export default function Header() {
                 <NavLink to={'/jobs'} >Jobs</NavLink>
                 <NavLink to={'/contact'} >Contact</NavLink>
                 <NavLink to={'/favorite'} >Favorite</NavLink>
+                <NavLink to={'/appliedjobs'} >Applied Jobs  <span>{totalAppliedJob.length}</span></NavLink>
+                <NavLink to={'/addjob'} >Add Job</NavLink>
                 <NavLink to={'/signup'} >SignUp</NavLink>
                 {
                   user ? <Link onClick={logout} >Logout</Link>: <NavLink to={'login'}>Login</NavLink>
                 }
                 <span>{user?.displayName}</span>
-                <NavLink to={'/appliedjobs'} >Applied Jobs  <span>{totalAppliedJob.length}</span></NavLink>
-                <NavLink to={'/addjob'} >Add Job</NavLink>
             </ul>
         </nav>
 

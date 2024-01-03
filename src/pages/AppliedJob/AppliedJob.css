@@ -1,0 +1,17 @@
+.conditional-p{
+    height: 600px;
+    text-align: center;
+    font-size: 90px;
+    line-height: 500px;
+    font-family: Poppins;
+    color: #92C7CF
+    
+}
+
+@media screen and (max-width: 768px) {
+    .conditional-p{
+        line-height: 300px;
+        font-size: 30px;
+        text-align: center;
+    }
+}

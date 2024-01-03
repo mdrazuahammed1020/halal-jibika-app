@@ -1,4 +1,4 @@
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import './SignUp.css'
 import { useNavigate } from 'react-router-dom'
 import auth from '../../authentication/firebase.config';
@@ -10,33 +10,39 @@ export default function SignUp() {
     user,
     loading,
     error,
-  ] = useCreateUserWithEmailAndPassword(auth);
-
+  ] = useCreateUserWithEmailAndPassword(auth, {
+    sendEmailVerification: true,
+  });
   const navigate = useNavigate();
-
+  const [updateProfile, updating] = useUpdateProfile(auth);
   if(user){
     navigate('/')
   }
-
   const handleSignUp = async (e) => {
     e.preventDefault()
-    const firstname = e.target.firstname.value;
-    const lastname = e.target.lastname.value;
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    const confirmpassword = e.target.confirmpassword.value;
+    const firstname = e.target.firstname.value.trim();
+    const lastname = e.target.lastname.value.trim();
+    const email = e.target.email.value.trim();
+    const password = e.target.password.value.trim();
+    const confirmpassword = e.target.confirmpassword.value.trim();
 
+    if(!firstname || !lastname || !email || !password || !confirmpassword) {
+      return toast.error("Please fill up all fields.!!!")
+    }
     if(password !== confirmpassword){
-      return toast.error("password dosent math")
+      return toast.error("password dosent match")
     }
 
-    
-    console.log(email, password)
-    await createUserWithEmailAndPassword(email, password)
-    return toast.success('successfully logged in..')
-    // await updateProfile({displayName: firstname})
-    // return toast.success("signin successful");
-    
+
+    try {
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName: firstname });
+    toast.success('Successfully signed up.');
+    navigate('/');
+      } catch (error) {
+    toast.error('Error signing up.');
+    console.error('Error signing up:', error);
+      }
   }
 
   return (

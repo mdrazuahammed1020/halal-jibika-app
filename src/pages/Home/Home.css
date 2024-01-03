@@ -1,7 +1,7 @@
 .home-section{
    
     height: 500px;
-    
+    margin-top: 120px;
     background-image: url("https://cdni.iconscout.com/illustration/premium/thumb/muslim-man-teach-islam-8549084-6800163.png");
     /* object-fit: contain; */
     background-size: contain;
@@ -97,4 +97,24 @@
     background-color: transparent;
     color: #000;
     border: 1px solid #2A5992;
+}
+
+@media screen and (max-width: 768px) {
+    .home-content h1 {
+        color: #071629;
+        font-size: 40px;
+        margin-top: -40px;
+        margin-left: -10px;
+    }
+
+    .home-section-inner{
+        grid-template-columns: repeat(1, auto);
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .home-btn{
+        margin-left: -12px;
+        /* border: 1px solid red; */
+    }
 }

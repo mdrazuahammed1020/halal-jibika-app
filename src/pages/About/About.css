@@ -1,4 +1,5 @@
 .about-content {
+  margin-top: 110px;
     padding: 20px 10px;
     display: flex;
     justify-content: space-between;
@@ -29,3 +30,15 @@
     width: 100%;
   }
   
+
+@media screen and (max-width: 768px) {
+  .about-content{
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .about-section-img{
+    width: 400px;
+    
+  }
+}

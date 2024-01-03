@@ -72,3 +72,10 @@
     border: 1px solid #176B87;
     ;
 }
+
+@media screen and (max-width: 768px) {
+    .job-card{
+        width: 370px;
+    }
+
+}

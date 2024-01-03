@@ -2,7 +2,7 @@
 
 .job-form {
     max-width: 400px;
-    margin: 0px auto 30px;
+    margin: 130px auto 30px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -45,3 +45,8 @@
   
   /* Add any additional styling you prefer */
   
+@media screen and (max-width: 768px) {
+  .job-form{
+    width: 370px;
+  }
+}

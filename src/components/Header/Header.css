@@ -1,47 +1,88 @@
-nav{
-    font-family: 'Nunito Sans', sans-serif;
+.navbar {
+    width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    /* height: 90px; */
-    margin-bottom: 30px;
-    /* position: fixed; */
-    padding: 30px 10px;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    height: 100px;
     top: 0;
     left: 0;
-}
-
-nav a {
-    display: inline-block;
-    margin: 0 5px;
-    padding: 8px 20px;
+    z-index: 100;
+    margin-bottom: 30px;
+    font-family: 'Nunito Sans', sans-serif;
+  }
+  
+  .logo h3 {
+    margin: 0;
+    font-size: 24px;
+    color: #2a5992;
+  }
+  
+  .menu-icon {
+    display: none;
+    cursor: pointer;
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style-type: none;
+    gap: 10px;
+  }
+  
+  /* .nav-links li {
+    margin-right: 20px;
     text-decoration: none;
-    color: black;
+
+  } */
+
+  .nav-links  a{
+    text-decoration: none;
+    color: #365486;
+    padding: 8px 15px;
+  }
+
+  .menu-icon svg{
+    font-size: 24px;
+    color:#2a5992;
+  }
+  
+.nav-links a.active{
+  background-color: #2a5992;
+  color: #fff;
+  
 }
 
-nav h3{
-    margin-left: 10px;
-    font-size: 20px;
-    color: #2A5992;
-}
+  @media screen and (max-width: 768px) {
+    .navbar{
+      /* border: 1px solid red; */
+    }
+    .menu-icon {
+      display: block;
+    }
+  
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      text-align: center;
+      background-color: #fff;
+      padding: 20px 0;
+      position: absolute;
+      top: 60px; /* Adjust as needed */
+      left: 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
 
-nav ul{
-    /* margin-right: 10px; */
-}
-
-.active{
-    background-color: #2A5992;
-    color: #fff;
-}
-
-ul a span  {
-    color: #000;
-    font-weight: bold;
-    /* position: relative; */
-} 
-
-
-/* ul a:nth-child(7)::before{
-
- }   */
-
+    .nav-links a.active{
+      width: 30%;
+      margin: 0 auto;
+    }
+  }
+  

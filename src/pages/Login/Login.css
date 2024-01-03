@@ -5,6 +5,7 @@
     box-shadow: rgba(7, 82, 133, 0.16) 0px 1px 4px;
     padding-bottom: 10px;
     font-family: 'Lora', serif;
+    padding: 20px;
 }
 
 .login-wrapper {
@@ -42,4 +43,25 @@
     cursor: pointer;
     color: #fff;
     border-radius: 5px;
+}
+
+.home-icon svg{
+    font-size: 25px;
+    margin-top: 0px;
+    /* border: 1px solid red; */
+    color: #2A5992;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.home-icons{
+    display: flex;
+    align-items: center;
+   
+}
+
+@media screen and (max-width: 768px) {
+    .login{
+        width: 370px;
+    }
 }

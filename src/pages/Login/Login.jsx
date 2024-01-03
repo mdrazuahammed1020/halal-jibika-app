@@ -2,6 +2,7 @@ import React from 'react'
 import { FaGoogle, FaGithub } from 'react-icons/fa'
 import './Login.css'
 import { useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { FaHome } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../authentication/firebase.config';
 import { toast } from 'react-toastify';
@@ -49,6 +50,7 @@ export default function Login() {
     <div>
        <div className="login-wrapper">
         <div className="login">
+        <p className='home-icons'><span onClick={()=> navigate('/')} className='home-icon'> <  FaHome /> </span></p>
           <h2>LogIn</h2>
           <form>
 

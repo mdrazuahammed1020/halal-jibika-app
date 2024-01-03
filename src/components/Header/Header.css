@@ -29,6 +29,7 @@
   .nav-links {
     display: flex;
     list-style-type: none;
+    align-items: center;
     gap: 10px;
   }
   
@@ -53,6 +54,27 @@
   background-color: #2a5992;
   color: #fff;
   
+}
+
+.user-name-profile{
+  /* display: inline-block; */
+  border: 1px solid teal;
+  /* padding: 8px 15px; */
+  /* padding-top: 8px; */
+  padding: 0 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+
+.profile-img-user img{
+  height: 50px;
+  width: 50px;
+  object-fit: contain;
+  border-radius: 50%;
+  margin-top: 2px;
 }
 
   @media screen and (max-width: 768px) {
@@ -84,5 +106,12 @@
       width: 30%;
       margin: 0 auto;
     }
+
+    .user-name-profile{
+      width: 40%;
+      margin: 0 auto;
+    }
   }
+  
+
   

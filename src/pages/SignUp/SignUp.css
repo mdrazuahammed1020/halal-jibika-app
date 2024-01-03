@@ -6,6 +6,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+   
     /* border: 1px solid red; */
 }
 .form-wrapper-inner{
@@ -23,6 +24,7 @@
     padding: 20px;
     border-radius: 10px;
     margin-top: -20px;
+    
 }
 
 .form-wrapper-inner form{
@@ -33,6 +35,22 @@
     padding: 30px;
     margin-top: 10px;
     width: 100%;
+    
+}
+
+.home-icon svg{
+    font-size: 25px;
+    margin-top: 0px;
+    /* border: 1px solid red; */
+    color: #2A5992;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.home-icons{
+    display: flex;
+    align-items: center;
+   
 }
 
 .form-wrapper-inner form input{
@@ -42,18 +60,27 @@
     outline: none;
     border: 1px solid black;
     font-size: 16px;
+    background: transparent;
+    color: #463b3b;
 
 }
 
-.form-wrapper-inner form input[type = 'button']{
+.form-wrapper-inner form input[type = 'submit']{
     width: 50%;
     margin: 10px auto;
-    background-color: teal;
+    background-color: #2A5992;
     color: #fff;
     cursor: pointer;
+    
 }
 
 .account-redirect-btn span{
     color: rgb(21, 67, 136);
     cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .form-text-wrapper{
+        width: 370px;
+    }
 }

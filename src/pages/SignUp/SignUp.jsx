@@ -3,6 +3,7 @@ import './SignUp.css'
 import { useNavigate } from 'react-router-dom'
 import auth from '../../authentication/firebase.config';
 import { toast } from 'react-toastify';
+import { FaHome } from "react-icons/fa";
 
 export default function SignUp() {
   const [
@@ -47,8 +48,8 @@ export default function SignUp() {
 
   return (
     <div className='signup-wrapper'>
-      
       <div className='form-text-wrapper'>
+      <p className='home-icons'><span onClick={()=> navigate('/')} className='home-icon'> <  FaHome /> </span></p>
         <h2>Please Singup here....</h2>
       <div className="form-wrapper-inner">
       <form onSubmit={handleSignUp}>
@@ -60,7 +61,9 @@ export default function SignUp() {
           <input type="submit" value="Submit" />
         </form>
       </div>
-      <p className='account-redirect-btn'>Already have an account ? <span><b onClick={()=> navigate('/login')} >logIn</b></span> </p> 
+      
+      <p className='account-redirect-btn'>  Already have an account ? <span><b onClick={()=> navigate('/login')} >logIn</b></span> </p> 
+      
       </div>
       
 

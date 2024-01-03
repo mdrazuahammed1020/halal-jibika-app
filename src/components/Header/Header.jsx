@@ -42,7 +42,7 @@ export default function Header() {
                 {
                   user ? <Link onClick={logout} >Logout</Link>: <NavLink to={'login'}>Login</NavLink>
                 }
-                <span>{user?.displayName}</span>
+                <span className='user-name-profile' > <span className='profile-img-user'>{user?.photoURL?<img src={user?.photoURL}></img>: <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="" /> }</span> <span>{user ? user?.displayName : 'User'}</span>  </span>
             </ul>
         </nav>
 

@@ -13,7 +13,7 @@ export default function Jobs() {
       {
         data && data.map(job => (
           <JobCard  key={job.id} job = {job} deleteElement = {deleteElement} appliedJobs = {appliedJobs} favoriteJobs = {favoriteJobs} />
-        ))
+        )) 
       }
     </div>
   )

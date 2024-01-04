@@ -6,13 +6,15 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../authentication/firebase.config';
 import { signOut } from 'firebase/auth';
 import { FaBars } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 export default function Header() {
-  const {totalAppliedJob} = useContext(UserContext);
+  const {totalAppliedJob, totalFavorite} = useContext(UserContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [user] = useAuthState(auth)
 
   const logout = () => {
     signOut(auth)
+    toast.success('Logout succesfully!!');
   }
 
   const toggleMenu = () => {
@@ -35,7 +37,7 @@ export default function Header() {
                 <NavLink to={'/about'} >About</NavLink>
                 <NavLink to={'/jobs'} >Jobs</NavLink>
                 <NavLink to={'/contact'} >Contact</NavLink>
-                <NavLink to={'/favorite'} >Favorite</NavLink>
+                <NavLink to={'/favorite'} >Favorite <span>{totalFavorite.length}</span> </NavLink>
                 <NavLink to={'/appliedjobs'} >Applied Jobs  <span>{totalAppliedJob.length}</span></NavLink>
                 <NavLink to={'/addjob'} >Add Job</NavLink>
                 <NavLink to={'/signup'} >SignUp</NavLink>

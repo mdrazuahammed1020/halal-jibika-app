@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 // import { v4 as uuidv4 } from 'uuid';
 import './AddJob.css'
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 export default function AddJob() {
+  const navigate = useNavigate();
   const [jobData, setJobData] = useState({
     id: '',
     title: '',
@@ -31,7 +33,7 @@ export default function AddJob() {
       .then((response) => response.json())
       .then((data) => {
         console.log('Success:', data);
-        
+        navigate('/jobs')
         setJobData({
           id: '',
           title: '',

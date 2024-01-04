@@ -5,6 +5,7 @@ import MainLayOut from './MainLayOut/MainLayOut'
 import UserContext from './UserContext'
 import useFetch from './customHook/useFetch';
 import axios from 'axios';
+import { json } from 'react-router-dom';
 
 function App() {
   const {data,loading, error } = useFetch("http://localhost:9000/jobs")
@@ -68,17 +69,17 @@ function App() {
     setTotalFavorite(prevJob => [...prevJob, appliedJob])
   }
 
-  console.log(totalFavorite)
-  // console.log(jobs)
+  function removeFavoriteJob(id){
+    let removerJobItems =  totalFavorite.filter(job => job.id !== id );
+    setTotalFavorite(removerJobItems) 
+    console.log('hi')
+  }
 
-  // function removeFavoriteJob(id){
-  //   let removerJobItems =  totalAppliedJob.filter(job => job.id !== id );
-  //   setTotalAppliedJob(removerJobItems) 
-  //   console.log('hi')
-  // }
+  
 
+  // console.log(totalFavorite)
 
-  // console.log(totalAppliedJob)
+  
   const value = {
     data: jobs,
     deleteElement,
@@ -86,7 +87,8 @@ function App() {
     totalAppliedJob,
     removeAppliedJob,
     favoriteJobs,
-    totalFavorite
+    totalFavorite,
+    removeFavoriteJob
   }
 
   return (
@@ -97,34 +99,3 @@ function App() {
 }
 
 export default App
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const deleteElement = async (id) => {
-//   try {
-//     const response = await fetch(`http://localhost:9000/jobs/${id}`, {
-//       method: 'DELETE'
-//     });
-
-//     if (response.ok) {
-//       const updatedJobs = jobs.filter(job => job.id !== id);
-//       setJobs(updatedJobs);
-//     } else {
-//       // Handle error if deletion fails
-//       console.error('Failed to delete job');
-//     }
-//   } catch (error) {
-//     console.error('Error deleting job:', error);
-//   }
-// }

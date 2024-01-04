@@ -5,10 +5,18 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import UserContext from "../../UserContext";
 import JobCard from "../../components/JobCard/JobCard";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../authentication/firebase.config";
 
 export default function Home() {
+  const [user] = useAuthState(auth);
   const {data, deleteElement, appliedJobs, favoriteJobs} = useContext(UserContext);
   const navigate = useNavigate()
+  function homeButtonNavgation(){
+    if(!user){
+      navigate('/signup')
+    }else navigate('/jobs')
+  }
   return (
     <div className="home-section-outer">
 
@@ -21,7 +29,7 @@ export default function Home() {
           <br /> take patients <br /> and make yourself <br />
           always ready for jobs.
         </h1>
-        <button onClick={()=> navigate('/signup')} className="home-btn">Explore Now</button>
+        <button onClick={homeButtonNavgation} className="home-btn">Explore Now</button>
       </div>
 
       {/* <div className="home-img"> <img src="../../assets/interview.png" alt="" /> </div> */}

@@ -1,11 +1,11 @@
 import React from 'react'
-import { FaGoogle, FaGithub } from 'react-icons/fa'
 import './Login.css'
-import { useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { FaHome } from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../authentication/firebase.config';
 import { toast } from 'react-toastify';
+import SocialAuth from '../../components/SocialAuth/SocialAuth';
 
 const obj = {
   size: '14px',
@@ -18,11 +18,7 @@ export default function Login() {
   const [signInWithEmailAndPassword, user, loading, error] =
   useSignInWithEmailAndPassword(auth);
 
-  const [signInWithGoogle, googleUser, googleLoading, googleError] =
-  useSignInWithGoogle(auth);
-  const [signInWithGithub, githubUser, githubLoading, githubError] =
-  useSignInWithGithub(auth);
-
+  
   const navigate= useNavigate()
   const location = useLocation();
 
@@ -30,9 +26,6 @@ export default function Login() {
   let from = location.state?.from?.pathname || "/";
 
   // let errorElement;
-  if (googleLoading || githubLoading) {
-    return <h2>loading....</h2>;
-  }
   
   if (user) {
     console.log(from)
@@ -43,12 +36,7 @@ export default function Login() {
   }
 
   
-  if (googleUser||githubUser) {
-    navigate("/");
-    toast.success(`Log In Successfully`, {
-      toastId: "success1",
-    });
-  }
+  
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -75,10 +63,8 @@ export default function Login() {
             </div>
         
           </form>
-
-            <button onClick={()=> signInWithGoogle()} className='icons-icn'> <FaGoogle /> <span>Continue with Google</span></button>
-
-            <button onClick={()=> signInWithGithub()} className='icons-icn'><FaGithub /><span>Continue with GitHub</span></button>
+          <SocialAuth />
+           
         </div>
        </div>
     </div> 

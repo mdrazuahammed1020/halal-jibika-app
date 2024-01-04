@@ -5,7 +5,6 @@ import MainLayOut from './MainLayOut/MainLayOut'
 import UserContext from './UserContext'
 import useFetch from './customHook/useFetch';
 import axios from 'axios';
-import { json } from 'react-router-dom';
 
 function App() {
   const {data,loading, error } = useFetch("http://localhost:9000/jobs")
@@ -54,7 +53,6 @@ function App() {
   function removeAppliedJob(id){
     let removerJobItems =  totalAppliedJob.filter(job => job.id !== id );
     setTotalAppliedJob(removerJobItems) 
-    console.log('hi')
   }
 
   function favoriteJobs(id) {
@@ -74,11 +72,6 @@ function App() {
     setTotalFavorite(removerJobItems) 
     console.log('hi')
   }
-
-  
-
-  // console.log(totalFavorite)
-
   
   const value = {
     data: jobs,

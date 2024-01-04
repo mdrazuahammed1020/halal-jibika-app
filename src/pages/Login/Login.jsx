@@ -27,9 +27,9 @@ export default function Login() {
   const location = useLocation();
 
 
-  let from = location.state?.from?.pathname || "/";
+  // let from = location.state?.from?.pathname || "/";
 
-  let errorElement;
+  // let errorElement;
   if (googleLoading || githubLoading) {
     return <h2>loading....</h2>;
   }

@@ -1,13 +1,11 @@
 import React from 'react'
 import { FaGoogle, FaGithub } from 'react-icons/fa'
 import './Login.css'
-import { useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { FaHome } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../authentication/firebase.config';
 import { toast } from 'react-toastify';
-// import auth from '../../authentication/firebase.config';
-// import { useAuthState } from 'react-firebase-hooks/auth';
 
 const obj = {
   size: '14px',
@@ -17,7 +15,8 @@ const obj = {
 
 
 export default function Login() {
-  // const [user] = useAuthState(auth);
+  const [signInWithEmailAndPassword, user, loading, error] =
+  useSignInWithEmailAndPassword(auth);
 
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
   useSignInWithGoogle(auth);
@@ -25,18 +24,24 @@ export default function Login() {
   useSignInWithGithub(auth);
 
   const navigate= useNavigate()
+  const location = useLocation();
+
+
+  let from = location.state?.from?.pathname || "/";
 
   let errorElement;
   if (googleLoading || githubLoading) {
     return <h2>loading....</h2>;
   }
-  // if (googleError || githubError) {
-  //   errorElement = (
-  //     <p className="text-red-600">
-  //       Error: {googleError?.message} {githubError?.message}
-  //     </p>
-  //   );
-  // }
+  
+  if (user) {
+    console.log(from)
+    navigate(from, { replace: true });
+    toast.success(`Log In Successfully`, {
+      toastId: "success1",
+    });
+  }
+
   
   if (googleUser||githubUser) {
     navigate("/");
@@ -45,6 +50,14 @@ export default function Login() {
     });
   }
 
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    await signInWithEmailAndPassword(email, password);
+  };
+
+
  
   return (
     <div>
@@ -52,7 +65,7 @@ export default function Login() {
         <div className="login">
         <p className='home-icons'><span onClick={()=> navigate('/')} className='home-icon'> <  FaHome /> </span></p>
           <h2>LogIn</h2>
-          <form>
+          <form onSubmit={handleSignIn}>
 
             <div className="form-inner">
               <input type="email" name='email' placeholder='Enter your email' />

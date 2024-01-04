@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import './EditPage.css'
 import axios from "axios";
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+
 
 export default function EditPage() {
     // const jobId = match.params.jobId;
+    const navigate = useNavigate();
+
     const {jobId} = useParams()
     const [jobData, setJobData] = useState(null);
     const [updatedJob, setUpdatedJob] = useState(null);
@@ -33,16 +36,17 @@ export default function EditPage() {
         try {
           const response = await axios.put(`http://localhost:9000/jobs/${jobId}`, updatedJob);
           console.log("Job updated:", response.data);
-          // Handle success: You might want to redirect or show a success message
+          navigate('/')
         } catch (error) {
           console.error("Error updating job:", error);
-          // Handle error: Show an error message to the user
         }
       };
-    
-    
   return (
         <div>
+            <div className="back-prev-state-info">
+            <button onClick={()=> navigate(-1)} >Home</button>
+            <h2 className='job-edit-title'>Update job info</h2>
+            </div>
         {
             jobData && (
             <form>
@@ -84,7 +88,7 @@ export default function EditPage() {
               onChange={handleChange}
               required
             ></textarea>
-            <button onClick={handleUpdate}>Save</button>
+            <button onClick={handleUpdate} >Save</button>
           </div>
         </form>
         )}

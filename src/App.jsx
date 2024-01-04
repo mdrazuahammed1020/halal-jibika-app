@@ -68,7 +68,7 @@ function App() {
     setTotalFavorite(prevJob => [...prevJob, appliedJob])
   }
 
-  // console.log(totalFavorite)
+  console.log(totalFavorite)
   // console.log(jobs)
 
   // function removeFavoriteJob(id){

@@ -28,7 +28,11 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/jobs',
-                element: <Jobs />
+                element: (
+                    <PrivateRoutes>
+                        <Jobs />
+                    </PrivateRoutes>
+                )
             },
             {
                 path: '/contact',
@@ -50,6 +54,10 @@ const routes = createBrowserRouter([
                         <AddJob />
                     </PrivateRoutes>
                 )
+            },
+            {
+                path: '/editpage',
+                element: <EditPage />
             }
            
         ],

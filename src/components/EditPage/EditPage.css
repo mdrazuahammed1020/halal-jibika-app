@@ -2,7 +2,7 @@
     /* position: absolute; */
     /* top: 10px; */
     max-width: 400px;
-    margin: 130px auto 30px;
+    margin: 30px auto 30px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -12,6 +12,11 @@
     z-index: 100999900;
 }
 
+.job-edit-title{
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+}
 
 .edit-form input[type='text'],
   .edit-form textarea {
@@ -40,7 +45,43 @@
     font-family: 'Poppins', sans-serif;
 
   }
+
+  .back-prev-state-info{
+    height: 100px;
+    background-color: #2A5992;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 17em;
+
+  }
+
+  .back-prev-state-info h2{
+    color: #fff;
+    width: 50%;
+    /* margin: 0 auto; */
+  }
+  
+  .back-prev-state-info button{
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 8px 16px;
+    margin-left: 20px;
+    /* margin-top: 20px; */
+  }
   
   .edit-form button:hover {
     background-color: #45a049;
   } 
+
+  @media screen and (max-width: 768px) {
+    .back-prev-state-info{
+        gap: 5em;
+    }
+
+    .edit-form{
+        width: 330px;
+    }
+  }
+  

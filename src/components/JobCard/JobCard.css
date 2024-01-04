@@ -6,6 +6,7 @@
     padding: 10px;
     cursor: pointer;
     width: 450px;
+    position: relative;
     /* padding: 10px; */
 }
 
@@ -72,6 +73,8 @@
     border: 1px solid #176B87;
     ;
 }
+
+
 
 @media screen and (max-width: 768px) {
     .job-card{

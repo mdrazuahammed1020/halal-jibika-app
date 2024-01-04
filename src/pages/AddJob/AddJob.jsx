@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 // import { v4 as uuidv4 } from 'uuid';
 import './AddJob.css'
+import axios from "axios";
 
 export default function AddJob() {
   const [jobData, setJobData] = useState({
@@ -10,9 +11,7 @@ export default function AddJob() {
     companyName: '',
     position: '',
     description: '',
-    jobpost: Math.floor(Math.random() * 10 + 1),
-    isApplied: false,
-    isFav: false
+    jobpost: Math.floor(Math.random() * 10 + 1)
   });
 
   const handleChange = (e) => {
@@ -24,12 +23,10 @@ export default function AddJob() {
 
   function handleSubmit(e){
     e.preventDefault();
-    fetch('http://localhost:9000/jobs', {
-      method: 'POST',
+    axios.post('http://localhost:9000/jobs', jobData, {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(jobData),
     })
       .then((response) => response.json())
       .then((data) => {

@@ -6,7 +6,7 @@
     margin-top: 100px;
     background-image: linear-gradient(to right, rgb(96, 165, 250), rgb(52, 211, 153));
     padding: 40px 0;
-    
+    z-index: 0;
 }
 
 @media screen and (max-width: 768px) {

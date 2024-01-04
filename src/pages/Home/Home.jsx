@@ -7,7 +7,7 @@ import UserContext from "../../UserContext";
 import JobCard from "../../components/JobCard/JobCard";
 
 export default function Home() {
-  const {data, deleteElement, appliedJobs} = useContext(UserContext);
+  const {data, deleteElement, appliedJobs, favoriteJobs} = useContext(UserContext);
   const navigate = useNavigate()
   return (
     <div className="home-section-outer">
@@ -31,7 +31,7 @@ export default function Home() {
       <h3>Recents Jobs</h3>
       <div className="home-section-inner">
         {
-          data && data.filter(job => job.jobpost < 5).sort((a, b)=> a.jobpost - b.jobpost).slice(0, 5).map(job => <JobCard key={job.id} job = {job} deleteElement={deleteElement} appliedJobs = {appliedJobs} /> )
+          data && data.filter(job => job.jobpost < 5).sort((a, b)=> a.jobpost - b.jobpost).slice(0, 5).map(job => <JobCard key={job.id} job = {job} deleteElement={deleteElement} appliedJobs = {appliedJobs} favoriteJobs={favoriteJobs} /> )
         }
       </div>
       <div className="see-jobs-btn">
